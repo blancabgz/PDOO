@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a2f525ca-2e30-4872-b2ae-5432df86c0e4" name="Changes" comment="" />
+    <list default="true" id="a2f525ca-2e30-4872-b2ae-5432df86c0e4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APUNTES/Test 2.md" beforeDir="false" afterPath="$PROJECT_DIR$/APUNTES/Test 2.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/basico.rb" beforeDir="false" afterPath="$PROJECT_DIR$/basico.rb" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +32,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../PRACTICAS/EjerciciosRuby" />
   </component>
   <component name="RunManager">
     <configuration name="basico" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
@@ -65,7 +70,8 @@
       <workItem from="1632214690212" duration="327000" />
       <workItem from="1632390653038" duration="13000" />
       <workItem from="1632396115401" duration="34000" />
-      <workItem from="1632817928173" duration="1838000" />
+      <workItem from="1632817928173" duration="3109000" />
+      <workItem from="1632994780623" duration="36000" />
     </task>
     <servers />
   </component>
@@ -73,6 +79,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TEMA_1@basico.rcov" NAME="basico Coverage Results" MODIFIED="1632818013506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="TEMA 1" />
+    <SUITE FILE_PATH="coverage/TEMA_1@basico.rcov" NAME="basico Coverage Results" MODIFIED="1632819799522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="TEMA 1" />
   </component>
 </project>

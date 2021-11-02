@@ -1,9 +1,11 @@
+package ejercicios;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ejercicios;
+
 
 /**
  *
@@ -45,7 +47,7 @@ public class ParcelaModificado {
     }
     
     public float getPrecioAlquilerCompleto(){
-        float precio_alquiler = precioBaseAlquiler * (factoralquilercasa + numCasas + (factoralquilerhotel*numHoteles));
+        float precio_alquiler = precioBaseAlquiler * (factoralquilercalle * (factoralquilercasa + numCasas + (factoralquilerhotel*numHoteles)));
         return precio_alquiler;
     }
     

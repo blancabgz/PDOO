@@ -12,20 +12,24 @@ import java.util.ArrayList;
  * @author Blanca
  */
 public class Tablero {
-    private ArrayList<Casilla> casillas;
+    private ArrayList<Casilla> tablero;
     private boolean porSalida;
+    private static final int TOTALCASILLAS = 20;
+    private static final int PRIMERACASILLA = 0;
+    private static final int ERRORCASILLA = -1;
     
-    protected Tablero(){
-        casillas = new ArrayList<Casilla>();
+    // construcor por defecto
+    public Tablero(){
+        tablero = new ArrayList<Casilla>();
         Casilla salida = new Casilla(TipoCasilla.DESCANSO, "Salida", 0, 0, 0);
-        casillas.add(salida);
+        tablero.add(salida);
         
         porSalida = false;
     }
     
     // devuelve true si la casilla es válida. Como hay 20 casillas devuelve true si está entre 0 y 19 incluidos.
     private boolean correcto(int numCasilla){
-        if(numCasilla < 20 && numCasilla >= 0){
+        if(numCasilla < TOTALCASILLAS && numCasilla >= PRIMERACASILLA){
             return true;
         }
         
@@ -33,32 +37,49 @@ public class Tablero {
     }
     
     // devuelve el atributo de salida y lo pone en false
-    protected boolean computarPasoPorSalida(){
+    boolean computarPasoPorSalida(){
         boolean copiaSalida = porSalida;
         porSalida = false;
         return copiaSalida;
     }
     
-    protected void anadeCasilla(Casilla casilla){
+    void anadeCasilla(Casilla casilla){
         boolean calleRepetida;
-        // comparo si los dos objetos tienen los mismos valores, es decir, es la misma casilla
-        for(int i = 0; i < casillas.size(); i++){
-            if(casillas.get(i).equals(casilla)){
-                casillas.add(casilla);
+        // compruebo con contains si el array ya tiene la casilla, si la tiene, pues no la inserta de nuevo
+        for(int i = 0; i < tablero.size(); i++){
+            if(!tablero.contains(casilla)){
+                tablero.add(casilla);
             }
         }
     }
     
     // devuelve la casilla si el indice pasado por parámetro es válido
-    protected Casilla getCasilla(int numCasilla){
+    public Casilla getCasilla(int numCasilla){
         // compruebo si se trata de un indice válido
         if(!correcto(numCasilla)){
             return null; 
         }
-        return casillas.get(numCasilla - 1);
+        return tablero.get(numCasilla - 1); // para que las casillas empiecen en 1
     }
     
+    public ArrayList<Casilla> getCasillas(){
+        return tablero;
+    }
     
+    // calcula la nueva posición en el tablero
+    
+    int nuevaPosicion(int actual, int tirada){
+        int avance = actual + tirada;
+        int casillaFinal = ERRORCASILLA;
+        
+        if (correcto(avance)) { // si no se pasa de las 20 casillas
+            casillaFinal = avance; // se guarda el valor
+        }else{
+            porSalida = true; // sino es que ha pasado por la salida
+            casillaFinal = avance % TOTALCASILLAS; // y se calcula el modulo para saber la casilla
+        }
+        return casillaFinal;
+    }
     
     
     

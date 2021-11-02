@@ -1,7 +1,7 @@
 module Basico
   class Perro
     @@contador = 0
-    attr_reader :nombre
+    attr_accessor :nombre
 
     def initialize(nombre)
       @@contador += 1

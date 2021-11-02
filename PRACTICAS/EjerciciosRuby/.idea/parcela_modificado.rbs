@@ -1,0 +1,14 @@
+class ParcelaModificado
+  @factoralquilercalle = 1.0
+  @factoralquilercasa = 1.0
+  @factoralquilerhotel = 4.0
+
+  def initialize (nombre,precioCompra,precioEdificar, precioBaseAlquiler)
+    @nombre = nombre
+    @precioCompra = precioCompra
+    @precioEdificar = precioEdificar
+    @precioBaseAlquiler = precioBaseAlquiler
+    @numCasas = 0
+    @numHoteles = 0
+  end
+end

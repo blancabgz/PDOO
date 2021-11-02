@@ -1,8 +1,8 @@
 class Parcela
 
-  @@factoralquilercalle
-  @@factoralquilercasa
-  @@factoralquilerhotel
+  @@factoralquilercalle = 1.0
+  @@factoralquilercasa = 1.0
+  @@factoralquilerhotel = 4.0
 
   def initialize (nombre,precioCompra,precioEdificar, precioBaseAlquiler)
     @nombre = nombre
@@ -11,16 +11,12 @@ class Parcela
     @precioBaseAlquiler = precioBaseAlquiler
     @numCasas = 0
     @numHoteles = 0
-    @@factoralquilercalle = 1.0
-    @@factoralquilercasa = 1.0
-    @@factoralquilerhotel = 4.0
-
   end
 
   attr_reader :nombre, :precioCompra, :precioEdificar, :numCasas, :numHoteles
 
   def getPrecioAlquilerCompleto
-    @precioBaseAlquiler*(@@factoralquilercasa+@numCasas+(@@factoralquilerhotel*@numHoteles))
+    @precioBaseAlquiler*(@@factoralquilercalle * (@@factoralquilercasa+@numCasas+(@@factoralquilerhotel*@numHoteles)))
   end
 
   def construirCasa
