@@ -150,7 +150,6 @@ public class Casilla {
         return false;
     }
     
-    // FALTA IMPLEMENTACION PRACTICA SIGUIENTE
     
     boolean comprar(Jugador jugador){
         propietario = jugador;
@@ -158,11 +157,15 @@ public class Casilla {
     }
     
     boolean construirCasa(Jugador jugador){
-        return false;
+        jugador.paga(precioEdificar);
+        numCasas++;
+        return true;
     }
     
     boolean construirHotel(Jugador jugador){
-        return false;
+        propietario.paga(precioEdificar);
+        numHoteles++;
+        return true;
     }
     
     void recibeJugador(int actual, ArrayList<Jugador> todos){
@@ -190,7 +193,9 @@ public class Casilla {
     }
     
     void recibeJugador_sorpresa(int actual, ArrayList<Jugador> todos){
-        
+        sorpresa = mazo.siguiente();
+        this.informe(actual, todos);
+        sorpresa.aplicarAJugador(actual, todos);
     }
     
     

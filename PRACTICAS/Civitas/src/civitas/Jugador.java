@@ -230,7 +230,30 @@ public class Jugador implements Comparable<Jugador>{
     }
 
     boolean construirCasa(int ip) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean result = false;
+        boolean existe = existeLaPropiedad(ip);
+        boolean puedoEdificar;
+        float precioEdificar;
+        int numCasas;
+        
+        
+        if(existe){
+            Casilla propiedad = propiedades.get(ip);
+            puedoEdificar = puedoEdificarCasa(propiedad);
+            precioEdificar = propiedad.getPrecioEdificar();
+            numCasas = propiedad.getNumCasas();
+            if(this.puedoGastar(precioEdificar) && numCasas < getCasasMax() ){
+                puedoEdificar = true;
+            }
+            
+            if(puedoEdificar){
+                result = propiedad.construirCasa(this);
+                Diario.getInstance().ocurreEvento("El jugador " + this.nombre + " construte casa en la propiedad " + ip);
+            }
+            
+            
+        }
+        return result;
     }
 
     boolean construirHotel(int ip) {
@@ -244,6 +267,12 @@ public class Jugador implements Comparable<Jugador>{
             
             if(puedoGastar(precio) && getHotelesMax() < propiedad.getNumHoteles() && propiedad.getNumCasas() >= getCasasPorHotel()){
                   puedoEdificarHotel = true;
+            }
+            
+            if(puedoEdificarHotel){
+                result = propiedad.construirHotel(this);
+                propiedad.derruirCasas(CasasPorHotel, this);
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " construye hotel en la propiedad " + ip);
             }
         }
         

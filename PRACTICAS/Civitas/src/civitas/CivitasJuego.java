@@ -179,7 +179,12 @@ public class CivitasJuego {
     }
     
     public boolean comprar(){
-        return false;   
+        boolean res = false;
+        Jugador jugadorActual = getJugadorActual();
+        int numCasillaActual = jugadorActual.getCasillaActual();
+        Casilla casilla = tablero.getCasilla(numCasillaActual);
+        res = jugadorActual.comprar(casilla);        
+        return res;
     }
     
 }
