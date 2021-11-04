@@ -24,6 +24,7 @@ public class CivitasJuego {
     // quien inicia el juego. Por último creamos el mazo y el tablero. 
     public CivitasJuego(ArrayList<String> nombres, boolean debug){
         Jugador jugador;
+        jugadores = new ArrayList<>();
         for (int i = 0; i < nombres.size(); i++) {
             jugador = new Jugador(nombres.get(i));
             jugadores.add(jugador);
@@ -112,7 +113,7 @@ public class CivitasJuego {
         return getJugadorActual().construirHotel(ip);
     }
     
-    // Método que comprueba si algún jugador ha caido en banca rota, y en ese caso, sse finaliza el juego
+    // Método que comprueba si algún jugador ha caido en banca rota, y en ese caso, se finaliza el juego
     public boolean finalDelJuego(){
         for(int i = 0; i < jugadores.size(); i++){
             if(jugadores.get(i).enBancarrota()){
@@ -123,10 +124,14 @@ public class CivitasJuego {
     }
     
     // Ordena a los jugadores según su saldo
-    private ArrayList<Jugador> ranking(){
+    // Le he cambiado la visibilidad porque en la vista necesitamos un ranking de los jugadores según el saldo. No hay problema en principio porque en esta clase no se 
+    // cambia ningun valor, sino que se devuelve una información
+    public ArrayList<Jugador> ranking(){
         Collections.sort(this.jugadores);
         return this.jugadores;
     }
+    
+   
     
     // Cuenta los pasos por salida, y si lo hay, premia al jugador
     private void contabilizarPasosPorSalida(){

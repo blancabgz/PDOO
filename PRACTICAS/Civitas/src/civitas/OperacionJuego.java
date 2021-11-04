@@ -10,7 +10,7 @@ package civitas;
  * @author Blanca
  */
 
-enum OperacionJuego{
+public enum OperacionJuego{
     PASAR_TURNO,
     AVANZAR,
     COMPRAR,

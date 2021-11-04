@@ -49,7 +49,8 @@ public class Jugador implements Comparable<Jugador>{
     }
     
     // Devolver el numero del jugador
-    String getNombre() {
+    // He puesto publico este metodo para poder acceder al nombre de los jugadores
+    public String getNombre() {
         return this.nombre;
     }
     
@@ -64,7 +65,8 @@ public class Jugador implements Comparable<Jugador>{
     }
     
     // Devuelve la casilla actual donde se encuentra el jugadir
-    int getCasillaActual(){
+    // CAMBIO: la he hecho público para acceder a la casilla actual y asi usarla para obtener información de la casilla para comprarla
+    public int getCasillaActual(){
         return casillaActual;
     }
     
@@ -83,7 +85,7 @@ public class Jugador implements Comparable<Jugador>{
     }
     
     // Devuelve la cantidad de hoteles y casas que tiene el jugador
-    int cantidadCasasHoteles(){
+    public int cantidadCasasHoteles(){
         int num = 0;
         
         for(int i = 0; i < this.propiedades.size(); i++){

@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package civitas;
-
+     
+import vistaTextualCivitas.VistaTextual;
 import java.util.ArrayList;
 
 /**
@@ -180,6 +181,32 @@ public class Civitas {
         
         System.out.println("La posicion final es " + tablero.nuevaPosicion(Dado.getInstance().getUltimoResultado(), Dado.getInstance().tirar()));
         System.out.println("La tirada ha sido " + Dado.getInstance().getUltimoResultado());
+        
+        Jugador jugador1 = new Jugador("Javi");
+        Jugador jugador2 = new Jugador("Mario");
+        Jugador jugador3 = new Jugador("Blanca");
+        Jugador jugador4 = new Jugador("Paula");
+        
+        ArrayList<String> jugadores = new ArrayList<>();
+        jugadores.add(jugador1.getNombre());
+        jugadores.add(jugador2.getNombre());
+        jugadores.add(jugador3.getNombre());
+        jugadores.add(jugador4.getNombre());
+        
+        
+        
+        CivitasJuego juego = new CivitasJuego(jugadores, true);
+    
+        VistaTextual vista = new VistaTextual(juego);
+    
+        vista.mostrarSiguienteOperacion(OperacionJuego.COMPRAR);
+        
+        
+        
+        
     }
+    
+    
+    
     
 }

@@ -9,7 +9,7 @@ package civitas;
  *
  * @author Blanca
  */
-enum OperacionInmobiliaria {
+public enum OperacionInmobiliaria {
     CONSTRUIR_CASA,
     CONSTRUIR_HOTEL,
     TERMINAR

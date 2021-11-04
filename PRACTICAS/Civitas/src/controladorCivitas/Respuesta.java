@@ -3,14 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mvc;
-
-import civitas.CivitasJuego;
+package controladorCivitas;
 
 /**
  *
  * @author Blanca
  */
-public class vistaTextualCivitas {
+public enum Respuesta {
+
+   SI,
+   NO
     
 }
