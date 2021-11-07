@@ -17,7 +17,7 @@ public class Jugador implements Comparable<Jugador>{
     protected static int CasasPorHotel = 4;
     protected static int HotelesMax = 4;
     protected static float PasoPorSalida = 1000;
-    private static float SaldoInicial = 7500;
+    private static float SaldoInicial = 1000;
     private static int ModificadorSaldo = -1;
     private ArrayList<Casilla> propiedades;
     private int casillaActual;
@@ -80,18 +80,17 @@ public class Jugador implements Comparable<Jugador>{
         return PasoPorSalida;
     }
     // Devuelve las propiedades de las casillas
-    protected ArrayList<Casilla> getPropiedades(){
+    // LO PONGO PUBLICO PARA ACCEDER A LAS PROPIEDADES
+    public ArrayList<Casilla> getPropiedades(){
         return this.propiedades;
     }
     
     // Devuelve la cantidad de hoteles y casas que tiene el jugador
     public int cantidadCasasHoteles(){
         int num = 0;
-        
         for(int i = 0; i < this.propiedades.size(); i++){
             num += this.propiedades.get(i).cantidadCasasHoteles();
         }
-        
         return num;
     }
     // Devuelve true si puede comprar 
@@ -166,7 +165,7 @@ public class Jugador implements Comparable<Jugador>{
     // método que añade o resta saldo del jugador y además informa al diario
     boolean modificaSaldo(float f) {
         this.saldo += f;
-        Diario.getInstance().ocurreEvento("El saldo del jugador " + this.nombre + "se ha incrementado " + f + " y el saldo final es " + this.saldo);
+        Diario.getInstance().ocurreEvento("El saldo del jugador " + this.nombre + "se ha modificado " + f + " y el saldo final es " + this.saldo);
         return true;
     }
     
@@ -250,7 +249,9 @@ public class Jugador implements Comparable<Jugador>{
             
             if(puedoEdificar){
                 result = propiedad.construirCasa(this);
-                Diario.getInstance().ocurreEvento("El jugador " + this.nombre + " construte casa en la propiedad " + ip);
+                Diario.getInstance().ocurreEvento("El jugador " + this.nombre + " construye casa en la propiedad " + ip);
+            }else{
+                Diario.getInstance().ocurreEvento("El jugador " + this.nombre+ " no puede construir en la propiedad " + ip );
             }
             
             
@@ -267,10 +268,12 @@ public class Jugador implements Comparable<Jugador>{
             propiedad = propiedades.get(ip);
             precio = propiedad.getPrecioEdificar();
             
-            if(puedoGastar(precio) && getHotelesMax() < propiedad.getNumHoteles() && propiedad.getNumCasas() >= getCasasPorHotel()){
+            if(puedoGastar(precio) && getHotelesMax() > propiedad.getNumHoteles() && propiedad.getNumCasas() >= getCasasPorHotel()){
                   puedoEdificarHotel = true;
             }
-            
+            else{
+                Diario.getInstance().ocurreEvento("El jugador " + nombre + " no puede construir un hotel en la propiedad " + ip);
+            }
             if(puedoEdificarHotel){
                 result = propiedad.construirHotel(this);
                 propiedad.derruirCasas(CasasPorHotel, this);

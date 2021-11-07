@@ -37,7 +37,8 @@ public class CivitasJuego {
         
         this.mazo = new MazoSorpresas(debug);
         
-        this.tablero = new Tablero();
+        inicializaTablero(mazo);
+        inicializaMazoSorpresas();
         
         
     }
@@ -45,6 +46,7 @@ public class CivitasJuego {
     // Método para crear tablero e introducir los diferentes tipos de casillas
     
     private void inicializaTablero(MazoSorpresas mazo){
+        this.tablero = new Tablero();
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.DESCANSO, "SALIDA"));
         
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Ronda de Valencia", 60, 50, 2));
@@ -63,9 +65,9 @@ public class CivitasJuego {
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Avenida de América", 220, 150, 18));
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Calle María de Molina", 220, 150, 18));
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.SORPRESA, "SORPRESA", this.mazo));
-        this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Calle Cea Bermúdez", 240, 150, 20));
-        this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Avenida Reyes Católicos", 260, 150, 22));
-        this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Plaza de España", 280, 150, 24));
+        this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Calle Cea Bermudez", 240, 150, 20));
+        this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Avenida Reyes Catolicos", 260, 150, 22));
+        this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Plaza de Espana", 280, 150, 24));
       
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.SORPRESA, "SORPRESA", this.mazo));
         this.tablero.anadeCasilla(new Casilla(TipoCasilla.CALLE, "Paseo de la Castellana", 350, 200, 35));
@@ -100,7 +102,7 @@ public class CivitasJuego {
     
     // Metodo para obtener el siguiente estado del jugador actual
     public void siguientePasoCompletado(OperacionJuego operacion) {
-        gestor.siguienteEstado(getJugadorActual(), estado, operacion);
+       this.estado = gestor.siguienteEstado(getJugadorActual(), estado, operacion);
     }
     
     // Metodo para construir una casa al jugador actual
@@ -134,9 +136,9 @@ public class CivitasJuego {
    
     
     // Cuenta los pasos por salida, y si lo hay, premia al jugador
-    private void contabilizarPasosPorSalida(){
+    private void contabilizarPasosPorSalida(Jugador jugador){
         while(tablero.computarPasoPorSalida()){
-            jugadores.get(indiceJugadorActual).pasaPorSalida();
+           jugador.pasaPorSalida();
         }
     }
     
@@ -175,10 +177,11 @@ public class CivitasJuego {
         Jugador jugadorActual = this.getJugadorActual();
         int posicionActual = jugadorActual.getCasillaActual();
         int tirada = Dado.getInstance().tirar();
+        Diario.getInstance().ocurreEvento("Ha salido una tirada de " + tirada + " para el jugador " + jugadorActual.getNombre());
         int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
         Casilla casilla = tablero.getCasilla(posicionNueva);
         
-        this.contabilizarPasosPorSalida();
+        contabilizarPasosPorSalida(jugadorActual);
         jugadorActual.moverACasilla(posicionNueva);
         casilla.recibeJugador(indiceJugadorActual, jugadores);  
     }

@@ -59,7 +59,7 @@ public class Tablero {
         if(!correcto(numCasilla)){
             return null; 
         }
-        return tablero.get(numCasilla - 1); // para que las casillas empiecen en 1
+        return tablero.get(numCasilla);
     }
     
     public ArrayList<Casilla> getCasillas(){

@@ -77,8 +77,10 @@ public class VistaTextual implements Vista {
         System.out.println(juegoModel.getJugadorActual().toString()); // este metodo muestra las propiedades del jugador actual y la casilla donde se encuentra
         if(juegoModel.finalDelJuego()){
             jugadores = juegoModel.ranking();
+            System.out.println("JUEGO FINALIZADO");
+            System.out.println("RANKING:");
             for(int i = 0; i < jugadores.size(); i++){
-                jugadores.get(i).getNombre();
+                System.out.println(jugadores.get(i).getNombre());
             }
         }
     }
@@ -106,19 +108,18 @@ public class VistaTextual implements Vista {
     }
 
     @Override
-    public int elegirPropiedad() {
+    public int elegirPropiedad() { // ESTO ESTA MAL IMPLEMENTADO, HACERLO CON LAS CALLES Y NO LAS PROPIEDADES
         int eleccion;
-        int numeroPropiedades = juegoModel.getJugadorActual().cantidadCasasHoteles();
+        int numeroPropiedades = juegoModel.getJugadorActual().getPropiedades().size();
         
         ArrayList<String> lista = new ArrayList<String>();
         for(int i = 0; i < numeroPropiedades; i++){
-            lista.add("" + i + "");
+            lista.add(juegoModel.getJugadorActual().getPropiedades().get(i).getNombre());
         }
 
         eleccion = menu("¿Sobre que propiedad quieres hacer la gestión seleccionada?", lista);
       
-        return eleccion;  
-        
+        return eleccion;   
     }
 
     @Override
@@ -128,12 +129,8 @@ public class VistaTextual implements Vista {
 
     @Override
     public void mostrarEventos() {
-        ArrayList<String> eventos = Diario.getInstance().getEventos();
-        int numEventos = eventos.size();
-        while(numEventos > 0){
-            for(int i = 0; i < numEventos; i++){
-                System.out.println(eventos.get(i));
-            }
+        while(Diario.getInstance().eventosPendientes()){
+            System.out.println(Diario.getInstance().leerEvento());
         }
     }
 
