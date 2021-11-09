@@ -34,7 +34,7 @@ public class Controlador {
             vista.actualiza();
             // Hace una pausa para que esperar la interaccion de un usuario entre turno y turno
             vista.pausa();
-             operacion = juego.siguientePaso();
+            operacion = juego.siguientePaso();
             vista.mostrarSiguienteOperacion(operacion);
             
             if(operacion != OperacionJuego.PASAR_TURNO){

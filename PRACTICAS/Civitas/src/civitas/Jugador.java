@@ -17,7 +17,7 @@ public class Jugador implements Comparable<Jugador>{
     protected static int CasasPorHotel = 4;
     protected static int HotelesMax = 4;
     protected static float PasoPorSalida = 1000;
-    private static float SaldoInicial = 1000;
+    private static float SaldoInicial = 7500;
     private static int ModificadorSaldo = -1;
     private ArrayList<Casilla> propiedades;
     private int casillaActual;
@@ -237,17 +237,23 @@ public class Jugador implements Comparable<Jugador>{
         float precioEdificar;
         int numCasas;
         
-        
+        // si existe la propiedad
         if(existe){
+            // obtenemos la propiedad
             Casilla propiedad = propiedades.get(ip);
+            // comprueba si puede edificar casa
             puedoEdificar = puedoEdificarCasa(propiedad);
+            // obtiene el precio de edificar la propiedad
             precioEdificar = propiedad.getPrecioEdificar();
+            // obtiene el numero de casas que tiene la propiedad
             numCasas = propiedad.getNumCasas();
-            if(this.puedoGastar(precioEdificar) && numCasas < getCasasMax() ){
+            // si puede gastar dinero y ha construido menos del numero maximo de casas
+            if(this.puedoGastar(precioEdificar) && numCasas <= getCasasMax() ){
                 puedoEdificar = true;
             }
-            
+            // si puede edificar
             if(puedoEdificar){
+                // se construye casa
                 result = propiedad.construirCasa(this);
                 Diario.getInstance().ocurreEvento("El jugador " + this.nombre + " construye casa en la propiedad " + ip);
             }else{

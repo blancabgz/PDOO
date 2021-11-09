@@ -26,14 +26,14 @@ public class CivitasJuego {
         Jugador jugador;
         jugadores = new ArrayList<>();
         for (int i = 0; i < nombres.size(); i++) {
-            jugador = new Jugador(nombres.get(i));
-            jugadores.add(jugador);
+            jugador = new Jugador(nombres.get(i)); // creo un objeto jugador con el nombre que me pasan por parametro
+            jugadores.add(jugador); // añado al array jugador
         }
-        this.gestor = new GestorEstados();
-        this.estado = this.gestor.estadoInicial();
-        Dado.getInstance().setDebug(debug);
+        this.gestor = new GestorEstados(); 
+        this.estado = this.gestor.estadoInicial(); // se pone el gestor de estados al estado inicial (inicio turno)
+        Dado.getInstance().setDebug(debug); // ponemos el dado en el modo debug que nos indique
         
-        this.indiceJugadorActual = Dado.getInstance().quienEmpieza(nombres.size());
+        this.indiceJugadorActual = Dado.getInstance().quienEmpieza(nombres.size()); // el dado elige el jugador que empieza
         
         this.mazo = new MazoSorpresas(debug);
         
@@ -78,16 +78,16 @@ public class CivitasJuego {
     // Metodo para introducir las diferentes sorpresas al mazo
     
     private void inicializaMazoSorpresas(){
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Paga por gastos escolares", -100));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Recibes el rescate por el seguro de tus edificios", 150));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Te pagan por intereses", 50));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Has ganado un concurso de crucigramas", 100));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Multa por embriaguez", -20));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Multa por exceso de velocidad", -40));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "La inspección de calles te obliga a hacer reparaciones", -40));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Paga el seguro por cada casa", -20));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Ganas un concurso de edificios, te dan 30 por edificio", 30));
-        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Es tu cumpleaños, recibes 10 por cada edificio ", 10));   
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Paga por gastos escolares", -1000));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Recibes el rescate por el seguro de tus edificios", 990));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Te pagan por intereses", 100));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Has ganado un concurso de crucigramas", 1000));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Multa por embriaguez", -2000));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PAGARCOBRAR, "Multa por exceso de velocidad", -1500));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "La inspección de calles te obliga a hacer reparaciones", -1500));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Paga el seguro por cada casa", -2000));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Ganas un concurso de edificios, te dan 300 por edificio", 300));
+        this.mazo.alMazo(new Sorpresa(TipoSorpresa.PORCASAHOTEL, "Es tu cumpleaños, recibes 100 por cada edificio ", 100));   
     }
     
     // Metodo para obtener el jugador actual
@@ -117,8 +117,8 @@ public class CivitasJuego {
     
     // Método que comprueba si algún jugador ha caido en banca rota, y en ese caso, se finaliza el juego
     public boolean finalDelJuego(){
-        for(int i = 0; i < jugadores.size(); i++){
-            if(jugadores.get(i).enBancarrota()){
+        for(int i = 0; i < jugadores.size(); i++){ // recorre todos los jugadores
+            if(jugadores.get(i).enBancarrota()){ // devuelve si el jugador esta en bancarrota, en caso de ser true, finaliza el juego
                 return true;
             }
         }
@@ -132,12 +132,11 @@ public class CivitasJuego {
         Collections.sort(this.jugadores);
         return this.jugadores;
     }
-    
-   
+
     
     // Cuenta los pasos por salida, y si lo hay, premia al jugador
     private void contabilizarPasosPorSalida(Jugador jugador){
-        while(tablero.computarPasoPorSalida()){
+        while(tablero.computarPasoPorSalida()){ 
            jugador.pasaPorSalida();
         }
     }
@@ -159,39 +158,41 @@ public class CivitasJuego {
     
     // Calcula el siguiente paso del jugador
     public OperacionJuego siguientePaso(){
-        Jugador jugadorActual = getJugadorActual();
-        OperacionJuego operacion = gestor.siguienteOperacion(jugadorActual, estado);
+        Jugador jugadorActual = getJugadorActual(); // obtenemos el jugador actual
+        OperacionJuego operacion = gestor.siguienteOperacion(jugadorActual, estado); // calculamos la siguiente operacion del jugador segun el estado
         
-        if(operacion == OperacionJuego.PASAR_TURNO){
-            this.pasarTurno();
-            this.siguientePasoCompletado(operacion);
-        }else if(operacion == OperacionJuego.AVANZAR){
-            avanzaJugador();
+        if(operacion == OperacionJuego.PASAR_TURNO){ // si la operacion es pasar turno
+            this.pasarTurno(); // pasamos turno
+            this.siguientePasoCompletado(operacion); 
+        }else if(operacion == OperacionJuego.AVANZAR){ // si es avanzar
+            avanzaJugador(); // avanza jugador
             siguientePasoCompletado(operacion);
         }
         
         return operacion;
     }
     
+    // Metodo para que el jugador avance casillas
     private void avanzaJugador(){
-        Jugador jugadorActual = this.getJugadorActual();
-        int posicionActual = jugadorActual.getCasillaActual();
-        int tirada = Dado.getInstance().tirar();
-        Diario.getInstance().ocurreEvento("Ha salido una tirada de " + tirada + " para el jugador " + jugadorActual.getNombre());
-        int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada);
-        Casilla casilla = tablero.getCasilla(posicionNueva);
+        Jugador jugadorActual = this.getJugadorActual();// obtenemos el jugador actual
+        int posicionActual = jugadorActual.getCasillaActual(); // obtenemos la posicion actual del jugador
+        int tirada = Dado.getInstance().tirar(); // tiramos el dado
+        Diario.getInstance().ocurreEvento("Ha salido una tirada de " + tirada + " para el jugador " + jugadorActual.getNombre()); // informamos al diario
+        int posicionNueva = tablero.nuevaPosicion(posicionActual, tirada); //calculamos la posicion nueva del jugador en el tablero
+        Casilla casilla = tablero.getCasilla(posicionNueva); // guardamos la casilla
         
-        contabilizarPasosPorSalida(jugadorActual);
-        jugadorActual.moverACasilla(posicionNueva);
+        contabilizarPasosPorSalida(jugadorActual); // contabilizamos pasos por salida 
+        jugadorActual.moverACasilla(posicionNueva); // movemos al jugador a la casilla
         casilla.recibeJugador(indiceJugadorActual, jugadores);  
     }
     
+    // Metodo para comprar una casilla
     public boolean comprar(){
         boolean res = false;
-        Jugador jugadorActual = getJugadorActual();
-        int numCasillaActual = jugadorActual.getCasillaActual();
-        Casilla casilla = tablero.getCasilla(numCasillaActual);
-        res = jugadorActual.comprar(casilla);        
+        Jugador jugadorActual = getJugadorActual(); // obtenemos el jugador actual
+        int numCasillaActual = jugadorActual.getCasillaActual(); // obtenemos la casilla actual
+        Casilla casilla = tablero.getCasilla(numCasillaActual); 
+        res = jugadorActual.comprar(casilla); // llamamos al metodo comprar de jugador para comprobar si puede comprar, si devuelve true es que ya está comprada
         return res;
     }
     

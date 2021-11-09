@@ -24,8 +24,8 @@ public class Casilla {
     private MazoSorpresas mazo;
     private Sorpresa sorpresa;
     
-    // Constructor por parámetros
     
+    // Metodo que inializa los atributos por defecto
     private void init(){
         this.numCasas = 0;
         this.numHoteles = 0;
@@ -33,6 +33,7 @@ public class Casilla {
         this.sorpresa = null;
     }
     
+    // Constructor por parámetros
     Casilla (TipoCasilla unTipo, String unNombre, float unPrecioCompra, float unPrecioEdificar, float unPrecioAlquilerBase){
         this.tipo = unTipo;
         this.nombre = unNombre;
@@ -44,6 +45,7 @@ public class Casilla {
         init();
     }
     
+    // Constructor por parámetros 
     Casilla(TipoCasilla tipo ,String nombre){
         this.nombre = nombre;
         this.tipo = tipo;
@@ -51,6 +53,7 @@ public class Casilla {
         init();
     }
     
+    // Constructor por parámetros
     Casilla(TipoCasilla tipo, String nombre, MazoSorpresas mazo){
         this.tipo = tipo;
         this.nombre = nombre;
@@ -59,22 +62,19 @@ public class Casilla {
     }
     
     // Devuelve la cantidad de casas y hoteles
-    
     public int cantidadCasasHoteles(){
         int numCasasHoteles = this.numCasas + this.numHoteles;
         return numCasasHoteles;
     }
     
     // Devuelve true si es el propietario de la casilla el jugador pasado por parámetro
-    
     public boolean esEsteElPropietario(Jugador jugador){
-        if (this.propietario.equals(jugador)) {
-            return true;
+        if (this.propietario.equals(jugador)) { // si es el propietario
+            return true; // true
         }
-        return false;
+        return false; // si no es, false
     }
-    
-     
+       
     // Devuelve el tipo de casilla
     public TipoCasilla getTipo(){
         return this.tipo;
@@ -134,40 +134,42 @@ public class Casilla {
     // Si un jugador cae en la casilla, tiene propietario y el jugador que cae en la casilla no es propietario, el propietario recibe el dinero que paga el jugador
     
     public void tramitarAlquiler(Jugador jugador){
-        if(tienePropietario() && !esEsteElPropietario(jugador)){
-            jugador.pagaAlquiler(getPrecioAlquilerCompleto());
-            propietario.recibe(getPrecioAlquilerCompleto());
+        if(tienePropietario() && !esEsteElPropietario(jugador)){ // si tiene propietario y el jugador actual no es el propietario
+            jugador.pagaAlquiler(getPrecioAlquilerCompleto()); // jugador actual paga el alquiler
+            propietario.recibe(getPrecioAlquilerCompleto()); // propietario recibe el dinero del alquiler
         }
     }
     
     // Derruir casa, si el que lo pide es el propietario y hay el número de casas que se indica
     boolean derruirCasas(int n, Jugador jugador){
-        if (esEsteElPropietario(jugador) && numCasas >= n) {
-            numCasas = numCasas - n;
-            return true;
+        if (esEsteElPropietario(jugador) && numCasas >= n) { // si es el propietario y el numero de casas que tiene es mayor del número de casas que quiere derruir
+            numCasas = numCasas - n; // quitamos el numero de casas al numero total de casas que tiene el jugador
+            return true; // devolvemos true indicando que se ha realizado correctamente
         }
         
-        return false;
+        return false; // no se ha podido derruir
     }
     
-    
+    // Le asignamos la propiedad al jugador y paga el precio de compra 
     boolean comprar(Jugador jugador){
         propietario = jugador;
         return propietario.paga(precioCompra);
     }
     
+    // El jugador paga el coste de edificar y aumentamos en uno el número de casas
     boolean construirCasa(Jugador jugador){
         jugador.paga(precioEdificar);
         numCasas++;
         return true;
     }
-    
+    // El jugador paga el coste de edificar y aumentamos en uno el numero de casas
     boolean construirHotel(Jugador jugador){
         propietario.paga(precioEdificar);
         numHoteles++;
         return true;
     }
     
+    // según el tipo de casilla, llama a distintos métodos
     void recibeJugador(int actual, ArrayList<Jugador> todos){
        switch(this.tipo){
             case CALLE: 
@@ -182,6 +184,8 @@ public class Casilla {
         } 
     }
     
+    // Comprar casilla calle: si la casilla no tiene propietario, mira si el jugador puede comprar casilla
+    // Si tiene propietario, el jugador paga el alquiler por caer ahi
     void recibeJugador_calle(int actual, ArrayList<Jugador> todos){
         informe(actual, todos);
         Jugador jugador = todos.get(actual);
@@ -192,6 +196,7 @@ public class Casilla {
         }
     }
     
+    // Se obtiene la sorpresa del mazo y se aplica al jugador
     void recibeJugador_sorpresa(int actual, ArrayList<Jugador> todos){
         sorpresa = mazo.siguiente();
         this.informe(actual, todos);
