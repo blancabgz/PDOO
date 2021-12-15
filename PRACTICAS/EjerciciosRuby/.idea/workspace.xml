@@ -2,22 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a7cfcc1b-d14f-44b2-8394-c3087a9da0b8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/laberinto/controlador_laberinto/Estado_juego.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/laberinto/controlador_laberinto/controlador.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/Casilla.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/Casilla.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/Civitas.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/Civitas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/Diario.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/Diario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/EstadosJuego.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/EstadoJuego.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/Tablero.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/Tablero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjerciciosJava/src/main/java/ejercicios/Parcela.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EjerciciosJava/src/main/java/ejercicios/Parcela.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EjerciciosJava/src/main/java/ejercicios/ParcelaModificado.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EjerciciosJava/src/main/java/ejercicios/ParcelaModificado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../P4_EJERCICIOS/herencia.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/GestionInmobiliaria.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/GestionInmobiliaria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Civitas/src/civitas/Sorpresa.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/civitas/Sorpresa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Civitas/src/controladorCivitas/Controlador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/controladorCivitas/Controlador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Civitas/src/vistaTextualCivitas/VistaTextual.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Civitas/src/vistaTextualCivitas/VistaTextual.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parcela.rb" beforeDir="false" afterPath="$PROJECT_DIR$/parcela.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codigo/Diario.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../codigo/EstadosJuego.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TEORIA/TEMA 1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEORIA/TEMA 1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TEORIA/TEMA 1/APUNTES/Test 2.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEORIA/TEMA 1/APUNTES/Test 2.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../TEORIA/TEMA 1/basico.rb" beforeDir="false" afterPath="$PROJECT_DIR$/../../TEORIA/TEMA 1/basico.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +34,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultRbsCreateFileTemplate" value="RBS File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -50,7 +43,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Ruby.vista_laberinto">
+  <component name="RunManager" selected="Ruby.herencia">
     <configuration name="ParcelaModificada" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
       <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
       <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$PROJECT_DIR$" />
@@ -76,6 +69,20 @@
       <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" IGNORE_RCOVRT="true" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true" />
       <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/laberinto/controlador_laberinto/controlador.rb" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="herencia" type="RubyRunConfigurationType" factoryName="Ruby" temporary="true">
+      <RUBY_RUN_CONFIG NAME="RUBY_ARGS" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="WORK DIR" VALUE="$PROJECT_DIR$/../P4_EJERCICIOS" />
+      <RUBY_RUN_CONFIG NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RUBY_RUN_CONFIG NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RUBY_RUN_CONFIG NAME="myPassParentEnvs" VALUE="true" />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" track_test_folders="true" runner="rcov" IGNORE_RCOVRT="true" ENABLE_BRANCH_COVERAGE="true" ENABLE_FORKED_COVERAGE="true" />
+      <EXTENSION ID="org.jetbrains.plugins.ruby.rails.run.RailsRunConfigurationExtension" SCRATCH_USE_RAILS_RUNNER="false" />
+      <RUBY_RUN_CONFIG NAME="SCRIPT_PATH" VALUE="$PROJECT_DIR$/../P4_EJERCICIOS/herencia.rb" />
       <RUBY_RUN_CONFIG NAME="SCRIPT_ARGS" VALUE="" />
       <method v="2" />
     </configuration>
@@ -109,6 +116,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Ruby.herencia" />
         <item itemvalue="Ruby.vista_laberinto" />
         <item itemvalue="Ruby.controlador" />
         <item itemvalue="Ruby.ParcelaModificada" />
@@ -136,6 +144,8 @@
       <workItem from="1635281763954" duration="2939000" />
       <workItem from="1635322948295" duration="1547000" />
       <workItem from="1635414070484" duration="979000" />
+      <workItem from="1637236240550" duration="28000" />
+      <workItem from="1637838204852" duration="781000" />
     </task>
     <servers />
   </component>
@@ -154,10 +164,14 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/EjerciciosRuby@parcela.rcov" NAME="parcela Coverage Results" MODIFIED="1632996542439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EjerciciosRuby@ParcelaModificada.rcov" NAME="ParcelaModificada Coverage Results" MODIFIED="1635280626851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/EjerciciosRuby@vista_laberinto.rcov" NAME="vista_laberinto Coverage Results" MODIFIED="1635415081102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/laberinto/vista" />
     <SUITE FILE_PATH="coverage/EjerciciosRuby@controlador.rcov" NAME="controlador Coverage Results" MODIFIED="1635281537012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/laberinto/controlador_laberinto" />
+    <SUITE FILE_PATH="coverage/EjerciciosRuby@herencia.rcov" NAME="herencia Coverage Results" MODIFIED="1637838768696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../P4_EJERCICIOS" />
   </component>
 </project>
